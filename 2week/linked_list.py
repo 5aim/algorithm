@@ -1,25 +1,30 @@
+# node 만들기
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
 
+# linked list node
 class LinkedList:
     def __init__(self, value):
         self.head = Node(value)
 
+    # 노드 추가하기
     def append(self, value):
         cur = self.head
         while cur.next is not None:
             cur = cur.next
         cur.next = Node(value)
 
+    # 모든 노드 프린트하기
     def print_all(self):
         cur = self.head
         while cur is not None:
             print(cur.data)
             cur = cur.next
 
+    # 노드 찾기
     def get_node(self, index):
         node = self.head
         count = 0
@@ -28,6 +33,7 @@ class LinkedList:
             count += 1
         return node
 
+    # 노드 더하기
     def add_node(self, index, value):
         new_node = Node(value) # [6]
         if index == 0:
@@ -41,6 +47,7 @@ class LinkedList:
         new_node.next = next_node # [6] -> [12]
         return
 
+    # 노드 삭제하기
     def delete_node(self, index):
         if index == 0:
             self.head = self.head.next
@@ -48,6 +55,7 @@ class LinkedList:
         
         node = self.get_node(index -1)
         node.next = node.next.next
+
 
 linked_list = LinkedList(5)
 linked_list.append(12)
